@@ -2,7 +2,7 @@
 <div id="todosContainer">
     <div id="todoItem" v-bind:key="todo.id" v-for="todo in todos">
         <input type="checkbox" v-model="todo.completed" />
-        <h3 v-bind:class="{completed: todo.completed}"> {{todo.title}}</h3>
+        <h3 v-rainbowColor v-bind:class="{completed: todo.completed}"> {{todo.title}}</h3>
         <button v-on:click="deleteTodo(todo.id)"> X </button>
     </div>
 </div>
@@ -20,6 +20,13 @@ export default {
     methods: {
         deleteTodo: function(id){
             this.$emit('deleteTodo', id)
+        }
+    },
+    directives: {
+        'rainbowColor': {
+            bind(el, binding, vnode){
+                el.style.color = `#${Math.random().toString(16).slice(2,8)}`
+            }
         }
     }
 }
@@ -49,6 +56,10 @@ export default {
         h3{
             flex: 10;
             text-align: left;
+
+            @media only screen and (max-width: 960px) {
+                font-size: 16px;
+            }
         }
 
         button{
@@ -57,6 +68,10 @@ export default {
             color: crimson;
             font-size: 20px;
             box-shadow: unset;
+
+            @media only screen and (max-width: 960px) {
+                font-size: 16px;
+            }
         }
     } 
 

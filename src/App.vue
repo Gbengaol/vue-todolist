@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,5 +25,9 @@ export default {
   margin: 60px auto;
   width: 70%;
   position: relative;
+
+  @media only screen and (max-width: 960px) {
+    width: 96%;
+  }
 }
 </style>

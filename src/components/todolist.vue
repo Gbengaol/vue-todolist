@@ -10,8 +10,8 @@
 <script>
 import todoInputVue from './todoInput.vue';
 import todoItemVue from './todoItem.vue';
+const uuid = require('uuid/v4');
 
-    const uuid = require('uuid/v4');
 export default {
     components: {
         'todo-input': todoInputVue,
@@ -52,6 +52,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+    h1{
+        text-transform: uppercase;
+        
+        @media only screen and (max-width: 960px) {
+            font-size: 24px;
+        }
+    }
 </style>
