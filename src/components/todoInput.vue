@@ -1,8 +1,8 @@
 <template>
 <div>
-    <form id="inputWrapper">
+    <form id="inputWrapper" v-on:submit.prevent="submit">
         <input type="text" v-model.lazy="todoItem" placeholder='Enter a Todo Item' required />
-        <button v-on:submit.prevent="submit"> Add </button>
+        <button> Add </button>
     </form>
 </div>
   
@@ -11,7 +11,7 @@
 <script>
 export default {
     methods: {
-        submit: function (){
+        submit: function (e){
             this.$emit('addTodo', this.todoItem)
             this.todoItem = '';
         }
