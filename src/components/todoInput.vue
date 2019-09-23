@@ -1,8 +1,8 @@
 <template>
 <div>
     <form id="inputWrapper">
-        <input type="text" v-model.lazy="todoItem" placeholder='Enter a Todo Item' />
-        <button v-on:click.prevent="submit"> Add </button>
+        <input type="text" v-model.lazy="todoItem" placeholder='Enter a Todo Item' required />
+        <button v-on:submit.prevent="submit"> Add </button>
     </form>
 </div>
   
