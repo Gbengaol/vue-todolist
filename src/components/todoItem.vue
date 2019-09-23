@@ -1,9 +1,9 @@
 <template>
 <div id="todosContainer">
     <div id="todoItem" v-bind:key="todo.id" v-for="todo in todos">
-        <input type="checkbox" v-model="todo.completed" />
+        <input type="checkbox" v-on:change="isCompleted(todo.id)" v-model="todo.completed" />
         <h3 v-rainbowColor v-bind:class="{completed: todo.completed}"> {{todo.title}}</h3>
-        <button v-on:click="deleteTodo(todo.id)"> X </button>
+        <button v-on:click="deleteTodo(todo.id)" class="btn"> X </button>
     </div>
 </div>
   
@@ -20,6 +20,9 @@ export default {
     methods: {
         deleteTodo: function(id){
             this.$emit('deleteTodo', id)
+        },
+        isCompleted(id){
+            this.$emit('isCompleted', id)
         }
     },
     directives: {
