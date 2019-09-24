@@ -1,5 +1,6 @@
 <template>
 <div>
+    <h1>A Simple Todo-List Application</h1>
     <form id="inputWrapper" v-on:submit.prevent="submit">
         <input type="text" v-model.lazy="todoItem" placeholder='Enter a Todo Item' required />
         <button> Add </button>

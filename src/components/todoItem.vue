@@ -1,12 +1,12 @@
 <template>
-<div id="todosContainer">
-    <div id="todoItem" v-bind:key="todo.id" v-for="todo in todos">
-        <input type="checkbox" v-on:change="isCompleted(todo.id)" v-model="todo.completed" />
-        <h3 v-rainbowColor v-bind:class="{completed: todo.completed}"> {{todo.title}}</h3>
-        <button v-on:click="deleteTodo(todo.id)" class="btn"> X </button>
-    </div>
-</div>
-  
+    <div id="todosContainer">
+        <div id="todoItem" v-bind:key="todo.id" v-for="todo in todos">
+            <input type="checkbox" v-on:change="isCompleted(todo.id)" v-model="todo.completed" />
+            <h3 v-rainbowColor v-bind:class="{completed: todo.completed}"> {{todo.title}}</h3>
+            <!-- <button v-on:click="editTodo(todo.id)" class="btn"> <i class="fa fa-edit"></i> </button> -->
+            <button v-on:click="deleteTodo(todo.id)" class="btn"> <i class="fa fa-trash"></i> </button>
+        </div>
+    </div>  
 </template>
 
 <script>
@@ -23,6 +23,9 @@ export default {
         },
         isCompleted(id){
             this.$emit('isCompleted', id)
+        },
+        editTodo: function(id){
+            this.$emit('editTodo', id)
         }
     },
     directives: {
@@ -38,10 +41,13 @@ export default {
 <style scoped lang="scss">
 #todosContainer{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: #f3f3f3;
     padding: 20px; 
     box-sizing: border-box;
+    position: relative;
+    max-height: 78vh;
+    overflow-y: auto;
 
     #todoItem{
         display: flex;
@@ -68,6 +74,7 @@ export default {
         button{
             flex: 1;
             border-radius: 5px;
+            margin: 0 10px;
             color: crimson;
             font-size: 20px;
             box-shadow: unset;

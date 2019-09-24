@@ -1,8 +1,13 @@
 <template>
     <div>
-       <h1>A Simple Todo-List Application</h1>
         <todo-input v-bind:addTodo="addTodo" v-on:addTodo="addTodo($event)"></todo-input> 
-        <todo-item v-bind:todos="todos" v-on:isCompleted="isCompleted($event)" v-on:deleteTodo="deleteTodo($event)"></todo-item>
+        <todo-item 
+            v-bind:todos="todos" 
+            v-on:isCompleted="isCompleted($event)" 
+            v-on:deleteTodo="deleteTodo($event)"
+            v-on:editTodo="editTodo($event)"
+        >
+        </todo-item>
     </div>
   
 </template>
@@ -53,6 +58,10 @@ export default {
             this.todos = JSON.parse(localStorage.getItem('todosList'))
         },
 
+        editTodo: function(event){
+            alert(event)
+        },
+
         deleteTodo: function(event){
             // fetch(`https://jsonplaceholder.typicode.com/todos/${event}`, {
             //     method: 'DELETE'
@@ -75,11 +84,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    h1{
-        text-transform: uppercase;
-
-        @media only screen and (max-width: 960px) {
-            font-size: 24px;
-        }
-    }
+    
 </style>
