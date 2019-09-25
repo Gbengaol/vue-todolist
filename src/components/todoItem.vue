@@ -64,6 +64,7 @@ export default {
         input[type="checkbox"]{
             flex: 1;
             height: 50px;
+            margin-right: 5px;
         }
 
         h3{
@@ -82,9 +83,10 @@ export default {
             color: crimson;
             font-size: 20px;
             box-shadow: unset;
+            max-height: 100px;
 
             @media only screen and (max-width: 960px) {
-                font-size: 16px;
+                font-size: 12px;
             }
         }
     } 

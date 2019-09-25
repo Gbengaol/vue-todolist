@@ -43,8 +43,8 @@ export default {
         if(todoLists){
             this.todos = JSON.parse(todoLists)
         } else {
-                localStorage.setItem('todosList', JSON.stringify(data.slice(0, 2)))
-                this.todos = JSON.parse(todoLists);
+            localStorage.setItem('todosList', JSON.stringify(data.slice(0, 2)))
+            this.todos = JSON.parse(todoLists);
         }  
     }, 
     methods: {
