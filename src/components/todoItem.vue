@@ -3,7 +3,7 @@
         <div id="todoItem" v-bind:key="todo.id" v-for="todo in todos">
             <input type="checkbox" v-on:change="isCompleted(todo.id)" v-model="todo.completed" />
             <h3 v-rainbowColor v-bind:class="{completed: todo.completed}"> {{todo.title}}</h3>
-            <!-- <button v-on:click="editTodo(todo.id)" class="btn"> <i class="fa fa-edit"></i> </button> -->
+            <button v-on:click="editTodo(todo)" class="btn"> <i class="fa fa-edit"></i> </button>
             <button v-on:click="deleteTodo(todo.id)" class="btn"> <i class="fa fa-trash"></i> </button>
         </div>
     </div>  
@@ -48,6 +48,10 @@ export default {
     position: relative;
     max-height: 78vh;
     overflow-y: auto;
+
+    .fa-edit{
+        color: #337ab7;
+    }
 
     #todoItem{
         display: flex;
