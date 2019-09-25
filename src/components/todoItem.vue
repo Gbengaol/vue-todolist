@@ -55,6 +55,7 @@ export default {
 
     #todoItem{
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         padding: 5px;
         border: 2px solid #727271;
